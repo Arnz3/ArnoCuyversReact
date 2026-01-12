@@ -1,5 +1,7 @@
 import { Code } from 'lucide-react';
 import { Button } from './ui/button';
+import heroimage from '@/assets/images/hero.jpg';
+
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -13,7 +15,7 @@ export function Hero() {
       <div 
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{ 
-          backgroundImage: 'url(https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral)' 
+          backgroundImage: `url(${heroimage})`
         }}
       >
         <div className="absolute inset-0 bg-black/80"></div>

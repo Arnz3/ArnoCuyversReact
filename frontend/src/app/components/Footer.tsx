@@ -8,13 +8,12 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2 text-gray-400">
-            <span>© {currentYear} Web Developer & Digital Solutions</span>
+            <span>© {currentYear} Arno Cuyvers</span>
           </div>
           
           <div className="flex items-center gap-2 text-gray-400">
             <span>Gebouwd met</span>
             <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-            <span>voor het web</span>
           </div>
         </div>
       </div>

@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS mijn_database;
+USE mijn_database;
+CREATE TABLE contact(id INT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(255));

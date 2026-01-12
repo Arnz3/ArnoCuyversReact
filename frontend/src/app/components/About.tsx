@@ -1,4 +1,10 @@
 import { Code, Globe, Server, ShoppingCart, Lightbulb, BarChart } from 'lucide-react';
+import dataImage from '@/assets/images/data.jpg';
+import webImage from '@/assets/images/websites.jpg';
+import hostingImage from '@/assets/images/hosting.jpg';
+import resvImage from '@/assets/images/reserveringen.jpg';
+import apiImage from '@/assets/images/api.jpg';
+
 
 export function About() {
   return (
@@ -43,7 +49,7 @@ export function About() {
             <div className="md:col-span-4 relative overflow-hidden rounded-2xl group">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc2Nzg1MTMwM3ww&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${dataImage})` }}
               >
                 <div className="absolute inset-0 bg-slate-900/80 group-hover:bg-slate-900/75 transition-colors"></div>
               </div>
@@ -60,7 +66,7 @@ export function About() {
             <div className="md:col-span-7 relative overflow-hidden rounded-2xl group">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1627599936744-51d288f89af4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkZXZlbG9wbWVudCUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3Njc5MDc1Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${webImage})` }}
               >
                 <div className="absolute inset-0 bg-gray-900/85 group-hover:bg-gray-900/80 transition-colors"></div>
               </div>
@@ -78,7 +84,7 @@ export function About() {
             <div className="md:col-span-5 relative overflow-hidden rounded-2xl group border-2 border-blue-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXJ2ZXIlMjBjbG91ZCUyMGNvbXB1dGluZ3xlbnwxfHx8fDE3Njc4OTI2NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${hostingImage})` }}
               >
                 <div className="absolute inset-0 bg-blue-600/75 group-hover:bg-blue-600/70 transition-colors"></div>
               </div>
@@ -96,7 +102,7 @@ export function About() {
             <div className="md:col-span-5 relative overflow-hidden rounded-2xl group border-2 border-green-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1484981184820-2e84ea0af397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYWxlbmRhciUyMHNjaGVkdWxpbmd8ZW58MXx8fHwxNzY3OTA3NTgwfDA&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${resvImage})` }}
               >
                 <div className="absolute inset-0 bg-green-600/75 group-hover:bg-green-600/70 transition-colors"></div>
               </div>
@@ -132,7 +138,7 @@ export function About() {
             <div className="md:col-span-6 relative overflow-hidden rounded-2xl group border-2 border-orange-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1760952851538-17a59f691efe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcGklMjBpbnRlZ3JhdGlvbnxlbnwxfHx8fDE3Njc5MDc1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${apiImage})` }}
               >
                 <div className="absolute inset-0 bg-orange-600/75 group-hover:bg-orange-600/70 transition-colors"></div>
               </div>

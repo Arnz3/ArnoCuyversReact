@@ -16,11 +16,32 @@ export function Contact() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Hier zou normaal de form submission logica komen
-    toast.success('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.');
-    setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
+    // form submission logica 
+    try {
+      console.log(formData.email)
+      const response = await fetch('http://localhost:8080/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: `${formData.email}` }), // Verstuur als JSON object
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        toast.success('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.');
+        setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
+      } else {
+        toast.error('Oeps er ging iets mis!');
+      }
+    } catch (error) {
+      toast.error('Server niet bereikbaar.');
+      console.log(error);
+    }
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -34,20 +55,20 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@webdev.nl',
-      link: 'mailto:info@webdev.nl'
+      value: 'info@arnocuyvers.be',
+      link: 'mailto:info@arnocuyvers.be'
     },
     {
       icon: Phone,
       title: 'Telefoon',
-      value: '+31 6 1234 5678',
-      link: 'tel:+31612345678'
+      value: '+32 468 34 84 34',
+      link: 'tel:+32468348434'
     },
     {
       icon: MapPin,
       title: 'Locatie',
-      value: 'Amsterdam, Nederland',
-      link: '#'
+      value: 'Middelkerke, Belgie',
+      link: '#contact'
     }
   ];
 
@@ -91,7 +112,7 @@ export function Contact() {
                 {/* <li>• Web applicaties</li> */}
                 <li>• Reserveringssystemen</li>
                 <li>• Website hosting</li>
-                <li>• Technisch beheer</li>
+                <li>• Data Analyse</li>
                 <li>• AV & Lichttechniek</li>
               </ul>
             </Card>
@@ -135,7 +156,7 @@ export function Contact() {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+31 6 1234 5678"
+                    placeholder="+32 412 34 56 78"
                   />
                 </div>
                 <div className="space-y-2">
