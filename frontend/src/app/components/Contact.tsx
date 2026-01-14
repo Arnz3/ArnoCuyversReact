@@ -193,6 +193,8 @@ export function Contact() {
                 />
               </div>
 
+              {/* TODO: add checkbox */}
+
               <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                 <Send className="w-4 h-4 mr-2" />
                 Verstuur Bericht

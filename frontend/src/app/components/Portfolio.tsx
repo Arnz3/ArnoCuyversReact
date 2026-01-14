@@ -6,6 +6,10 @@ import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Hoppe25 from '@/assets/portfolio/hoppe25.jpg';
+import Osb25 from '@/assets/portfolio/osb.jpg';
+import Westfront from '@/assets/portfolio/westfront.jpg';
+import msgParty from '@/assets/portfolio/messageParty.jpeg';
 
 interface PortfolioItem {
   id: number;
@@ -20,70 +24,46 @@ export function Portfolio() {
   const sliderRef = useRef<Slider>(null);
 
   const portfolioItems: PortfolioItem[] = [
+    // {
+    //   id: 1,
+    //   title: 'AI Chatbot voor Klantenservice',
+    //   category: 'ai',
+    //   description: 'Intelligente chatbot met natuurlijke taalverwerking voor een e-commerce platform. 24/7 klantenondersteuning met 85% automatische oplossing.',
+    //   image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    //   tags: ['NLP', 'Python', 'TensorFlow', 'API']
+    // },
     {
       id: 1,
-      title: 'AI Chatbot voor Klantenservice',
-      category: 'ai',
-      description: 'Intelligente chatbot met natuurlijke taalverwerking voor een e-commerce platform. 24/7 klantenondersteuning met 85% automatische oplossing.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['NLP', 'Python', 'TensorFlow', 'API']
+      title: "Hoppefeesten 2nd stage (23-24-25)",
+      category: 'av',
+      description: "Second stage van Hoppefeesten Veurne, festival met 7000+ bezoekers. Ontwerp van lichtset, programmatie en uitvoering",
+      image: Hoppe25,
+      tags: ['Capture', 'Chamsys', 'GrandMa3']
     },
     {
       id: 2,
-      title: 'Restaurant Reserveringssysteem',
-      category: 'booking',
-      description: 'Complete online reserveringsplatform voor restaurant met 200+ plaatsen. Real-time beschikbaarheid en automatische bevestigingen.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'Email API']
+      title: "Ostend beach 2025 desperados stage",
+      category: 'av',
+      description: "Desperados stage van Hoppefeesten Veurne, festival met 16000+ bezoekers. programmatie en uitvoering",
+      image: Osb25,
+      tags: ['Chamsys', 'GrandMa3']
     },
     {
       id: 3,
-      title: 'Predictive Maintenance Dashboard',
-      category: 'ai',
-      description: 'Machine learning model dat storingen voorspelt in industriële apparatuur. Dashboard met real-time monitoring en alerts.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['Machine Learning', 'Python', 'Data Analysis', 'React']
+      title: "Message party",
+      category: 'website',
+      description: "Message party systeem, scannen van een qr-code om bericht in te geven die wordt getoont op een groot scherm. Met content moderation.",
+      image: msgParty,
+      tags: ['content-moderation', 'QR-code', 'Database']
     },
     {
       id: 4,
-      title: 'E-commerce Platform',
-      category: 'webapp',
-      description: 'Webshop met productbeheer, winkelwagen, checkout en ordertracking. Inclusief admin dashboard.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['Next.js', 'Stripe', 'Tailwind CSS', 'API Integration']
-    },
-    {
-      id: 5,
-      title: 'Bedrijfswebsite met CMS',
+      title: "Introscherm Westfront",
       category: 'website',
-      description: 'Moderne website voor lokaal bedrijf met content management systeem voor eenvoudig zelf beheren.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['WordPress', 'Custom Theme', 'SEO', 'Responsive']
+      description: "Introscherm van het museum westfront, voor het selecteren van de te volgen gids aan de hand van enkele vragen",
+      image: Westfront,
+      tags: ['Kiosk', 'Touchscreen']
     },
-    {
-      id: 6,
-      title: 'Sales Forecasting Tool',
-      category: 'ai',
-      description: 'AI-gedreven verkoopvoorspelling gebaseerd op historische data en markttrends. Helpt bedrijven bij voorraadplanning.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['Time Series', 'Python', 'Scikit-learn', 'Visualization']
-    },
-    {
-      id: 7,
-      title: 'Event Ticketing Platform',
-      category: 'booking',
-      description: 'Ticketverkoopplatform voor evenementen met QR-code validatie en real-time rapportage.',
-      image: 'https://images.unsplash.com/photo-1698919585693-191c51b66cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWluZyUyMGNvZGUlMjBkZXZlbG9wZXJ8ZW58MXx8fHwxNzY3ODE2NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['React', 'Payment Gateway', 'QR Codes', 'Analytics']
-    },
-    {
-      id: 8,
-      title: 'Festival Hoofdpodium',
-      category: 'av',
-      description: 'Complete lichtontwerp en uitvoering voor festival met 5000+ bezoekers.',
-      image: 'https://images.unsplash.com/photo-1709731191876-899e32264420?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFnZSUyMGxpZ2h0aW5nJTIwY29uY2VydHxlbnwxfHx8fDE3Njc3ODIzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      tags: ['DMX', 'Lighting Design', 'Stage Production']
-    }
   ];
 
   const settings = {
