@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { Card } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Label } from './ui/label';
 import { toast } from 'sonner';
+import { Checkbox } from './ui/checkbox';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -15,9 +16,11 @@ export function Contact() {
     projectType: '',
     message: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitted(true);
     // form submission logica 
     try {
       console.log(formData.email)
@@ -31,6 +34,7 @@ export function Contact() {
 
       const data = await response.json();
       
+      // create succes message
       if (data.success) {
         toast.success('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.');
         setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
@@ -193,12 +197,43 @@ export function Contact() {
                 />
               </div>
 
-              {/* TODO: add checkbox */}
+              {/* TODO: fix textbox speech and reset on submit */}
+              <div className="space-y-2">
+                <Checkbox id="toestemming" className='m-3' required/>
+                Ik geef toestemming dat deze website mijn gegevens mag bewaren
+              </div>
 
               <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
                 <Send className="w-4 h-4 mr-2" />
                 Verstuur Bericht
               </Button>
+
+              {/* Success Message */}
+              {isSubmitted && (
+                <div className="mt-6 p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center animate-in zoom-in duration-300 delay-150">
+                        <CheckCircle2 className="w-7 h-7 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-green-900 mb-2">
+                        Bericht succesvol verzonden! 🎉
+                      </h4>
+                      <p className="text-green-800 mb-3">
+                        Bedankt voor je interesse! Ik heb je bericht ontvangen en zal zo snel mogelijk reageren.
+                      </p>
+                      <button
+                        onClick={() => setIsSubmitted(false)}
+                        className="mt-4 text-sm text-green-700 hover:text-green-900 font-medium underline underline-offset-2"
+                      >
+                        Nog een bericht versturen?
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </form>
           </Card>
         </div>

@@ -4,7 +4,7 @@ import webImage from '@/assets/images/websites.jpg';
 import hostingImage from '@/assets/images/hosting.jpg';
 import resvImage from '@/assets/images/reserveringen.jpg';
 import apiImage from '@/assets/images/api.jpg';
-
+import avImage from '@/assets/images/av.jpg';
 
 export function About() {
   return (
@@ -154,7 +154,7 @@ export function About() {
             <div className="md:col-span-6 relative overflow-hidden rounded-2xl group border-2 border-yellow-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1709731191876-899e32264420?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFnZSUyMGxpZ2h0aW5nJTIwY29uY2VydHxlbnwxfHx8fDE3Njc5MDc1ODF8MA&ixlib=rb-4.1.0&q=80&w=1080)' }}
+                style={{ backgroundImage: `url(${avImage})` }}
               >
                 <div className="absolute inset-0 bg-yellow-600/75 group-hover:bg-yellow-600/70 transition-colors"></div>
               </div>
