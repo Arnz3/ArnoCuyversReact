@@ -12,6 +12,7 @@ $name = $data['name'] ?? '';
 $email = $data['email'] ?? '';
 $tel = $data['tel'] ?? '';
 $project = $data['project'] ?? '';
+$message = $data['message'] ?? '';
 
 //TODO: add validation function
 
@@ -27,6 +28,8 @@ if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     // 3. Opslaan met een Prepared Statement (Veilig tegen SQL-injectie!)
     $stmt = $conn->prepare("INSERT INTO contact (name, email, tel, project) VALUES (?,?,?,?)");
     $stmt->bind_param("ssss",$name, $email, $tel, $project);
+
+    include('mail.php');
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "Opgeslagen"]);

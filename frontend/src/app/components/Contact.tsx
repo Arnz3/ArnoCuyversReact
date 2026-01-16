@@ -34,6 +34,7 @@ export function Contact() {
           email: `${formData.email}`, 
           tel: `${formData.phone}`, 
           project: `${formData.projectType}`, 
+          message: `${formData.message}`
         }), // Verstuur als JSON object
       });
 
