@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, CircleX } from 'lucide-react';
 import { Card } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -17,10 +17,12 @@ export function Contact() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitted(false);
+    setFailed(false);
     // form submission logica 
     try {
       console.log(formData.email)
@@ -37,12 +39,15 @@ export function Contact() {
       // create succes message
       if (data.success) {
         toast.success('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.');
+        setIsSubmitted(true);
         setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
       } else {
         toast.error('Oeps er ging iets mis!');
+        setFailed(true);
       }
     } catch (error) {
       toast.error('Server niet bereikbaar.');
+      setFailed(true);
       console.log(error);
     }
 
@@ -197,7 +202,7 @@ export function Contact() {
                 />
               </div>
 
-              {/* TODO: fix textbox speech and reset on submit */}
+              {/* TODO: fix checkbox speech and reset on submit */}
               <div className="space-y-2">
                 <Checkbox id="toestemming" className='m-3' required/>
                 Ik geef toestemming dat deze website mijn gegevens mag bewaren
@@ -224,12 +229,26 @@ export function Contact() {
                       <p className="text-green-800 mb-3">
                         Bedankt voor je interesse! Ik heb je bericht ontvangen en zal zo snel mogelijk reageren.
                       </p>
-                      <button
-                        onClick={() => setIsSubmitted(false)}
-                        className="mt-4 text-sm text-green-700 hover:text-green-900 font-medium underline underline-offset-2"
-                      >
-                        Nog een bericht versturen?
-                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Error Message */}
+              {failed && (
+                <div className="mt-6 p-6 bg-gradient-to-br from-pink-50 to-red-50 border-2 border-red-200 rounded-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center animate-in zoom-in duration-300 delay-150">
+                        <CircleX className="w-7 h-7 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-red-900 mb-2">
+                        Er is iets mis gegaan!
+                      </h4>
+                      <p className="text-red-800 mb-3">
+                        Probeer het nog eens of contacteer de eigenaar op een andere manier.
+                      </p>
                     </div>
                   </div>
                 </div>
