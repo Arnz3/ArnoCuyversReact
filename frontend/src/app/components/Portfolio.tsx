@@ -52,7 +52,7 @@ export function Portfolio() {
       id: 3,
       title: "Message party",
       category: 'website',
-      description: "Message party systeem, scannen van een qr-code om bericht in te geven die wordt getoont op een groot scherm. Met content moderation.",
+      description: "Message party systeem, scannen van een qr-code om bericht in te geven die wordt getoont op een groot scherm.",
       image: msgParty,
       tags: ['content-moderation', 'QR-code', 'Database']
     },

@@ -63,7 +63,7 @@ export function About() {
             </div>
 
             {/* Large card - Website Development */}
-            <div className="md:col-span-7 relative overflow-hidden rounded-2xl group">
+            <div className="md:col-span-8 relative overflow-hidden rounded-2xl group">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${webImage})` }}
@@ -81,7 +81,7 @@ export function About() {
             </div>
 
             {/* Medium card - Hosting */}
-            <div className="md:col-span-5 relative overflow-hidden rounded-2xl group border-2 border-blue-100">
+            <div className="md:col-span-7 relative overflow-hidden rounded-2xl group border-2 border-blue-100">
               <div 
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${hostingImage})` }}
@@ -169,11 +169,11 @@ export function About() {
           </div>
 
           {/* Bottom text */}
-          <div className="mt-12 text-center">
+          {/* <div className="mt-12 text-center">
             <p className="text-gray-600 italic">
               Elk project is maatwerk - geen templates, maar oplossingen die echt bij jouw bedrijf passen.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

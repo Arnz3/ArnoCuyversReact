@@ -5,7 +5,6 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { Label } from './ui/label';
-import { toast } from 'sonner';
 import { Checkbox } from './ui/checkbox';
 
 export function Contact() {
@@ -38,17 +37,13 @@ export function Contact() {
       
       // create succes message
       if (data.success) {
-        toast.success('Bedankt voor je bericht! Ik neem zo snel mogelijk contact met je op.');
         setIsSubmitted(true);
         setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
       } else {
-        toast.error('Oeps er ging iets mis!');
         setFailed(true);
       }
     } catch (error) {
-      toast.error('Server niet bereikbaar.');
       setFailed(true);
-      console.log(error);
     }
 
   };
@@ -205,7 +200,9 @@ export function Contact() {
               {/* TODO: fix checkbox speech and reset on submit */}
               <div className="space-y-2">
                 <Checkbox id="toestemming" className='m-3' required/>
-                Ik geef toestemming dat deze website mijn gegevens mag bewaren
+                <span className="text-sm text-gray-600">
+                  Ik geef toestemming dat deze website mijn persoonlijke gegevens mag bewaren
+                </span>
               </div>
 
               <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
