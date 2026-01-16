@@ -8,7 +8,12 @@ header("Content-Type: application/json");
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
+$name = $data['name'] ?? '';
 $email = $data['email'] ?? '';
+$tel = $data['tel'] ?? '';
+$project = $data['project'] ?? '';
+
+//TODO: add validation function
 
 if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     // 2. Database verbinding
@@ -20,8 +25,8 @@ if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     }
 
     // 3. Opslaan met een Prepared Statement (Veilig tegen SQL-injectie!)
-    $stmt = $conn->prepare("INSERT INTO contact (email) VALUES (?)");
-    $stmt->bind_param("s", $email);
+    $stmt = $conn->prepare("INSERT INTO contact (name, email, tel, project) VALUES (?,?,?,?)");
+    $stmt->bind_param("ssss",$name, $email, $tel, $project);
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "Opgeslagen"]);

@@ -24,13 +24,17 @@ export function Contact() {
     setFailed(false);
     // form submission logica 
     try {
-      console.log(formData.email)
       const response = await fetch('http://localhost:8080/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: `${formData.email}` }), // Verstuur als JSON object
+        body: JSON.stringify({ 
+          name: `${formData.name}`,
+          email: `${formData.email}`, 
+          tel: `${formData.phone}`, 
+          project: `${formData.projectType}`, 
+        }), // Verstuur als JSON object
       });
 
       const data = await response.json();
