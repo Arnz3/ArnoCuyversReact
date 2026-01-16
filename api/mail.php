@@ -47,10 +47,5 @@ $mail = "
 </html>
 ";
 
-if(mail($to, $subject, $mail, implode("\r\n", $headers))){
-    echo "E-mail succesvol verzonden!";
-} else {
-    echo "Verzending mislukt.";
-}
-
+mail($to, $subject, $mail, implode("\r\n", $headers));
 ?>
